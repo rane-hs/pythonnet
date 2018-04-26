@@ -32,3 +32,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Python.Runtime for Python 3.6")]
 [assembly: AssemblyDescription("Python Runtime for Python 3.6")]
 #endif
+#if PYTHON37
+[assembly: AssemblyTitle("Python.Runtime for Python 3.7")]
+[assembly: AssemblyDescription("Python Runtime for Python 3.7")]
+#endif

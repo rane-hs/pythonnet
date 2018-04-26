@@ -143,8 +143,12 @@ namespace Python.Runtime
         public const string pyversion = "3.6";
         public const int pyversionnumber = 36;
 #endif
-#if ! (PYTHON23 || PYTHON24 || PYTHON25 || PYTHON26 || PYTHON27 || PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36)
-#error You must define one of PYTHON23 to PYTHON36
+#if (PYTHON37)
+        public const string pyversion = "3.7";
+        public const int pyversionnumber = 37;
+#endif
+#if ! (PYTHON23 || PYTHON24 || PYTHON25 || PYTHON26 || PYTHON27 || PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36 || PYTHON37)
+#error You must define one of PYTHON23 to PYTHON37
 #endif
 
 #if (PYTHON23)
@@ -178,6 +182,9 @@ namespace Python.Runtime
 #if (PYTHON36)
         internal const string dllBase = "python3.6";
 #endif
+#if (PYTHON37)
+        internal const string dllBase = "python3.7";
+#endif
 #else
 #if (PYTHON32)
         internal const string dllBase = "python32";
@@ -193,6 +200,9 @@ namespace Python.Runtime
 #endif
 #if (PYTHON36)
         internal const string dllBase = "python36";
+#endif
+#if (PYTHON37)
+        internal const string dllBase = "python37";
 #endif
 #endif
 
@@ -1563,7 +1573,7 @@ namespace Python.Runtime
         }
     }
 
-#if (PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36)
+#if (PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36 || PYTHON37)
     [DllImport(Runtime.dll, CallingConvention = CallingConvention.Cdecl,
         ExactSpelling = true, CharSet = CharSet.Unicode)]
     internal unsafe static extern IntPtr
@@ -1607,7 +1617,7 @@ namespace Python.Runtime
         }
 
 #if (UCS2)
-#if (PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36)
+#if (PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36 || PYTHON37)
     [DllImport(Runtime.dll, CallingConvention=CallingConvention.Cdecl,
         ExactSpelling=true, CharSet=CharSet.Unicode)]
     internal unsafe static extern IntPtr
@@ -1726,7 +1736,7 @@ namespace Python.Runtime
 
 #endif
 #if (UCS4)
-#if (PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36)
+#if (PYTHON33 || PYTHON34 || PYTHON35 || PYTHON36 || PYTHON37)
     [DllImport(Runtime.dll, CallingConvention = CallingConvention.Cdecl,
         ExactSpelling=true, CharSet=CharSet.Unicode)]
     internal unsafe static extern IntPtr
